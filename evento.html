@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evento Especial</title>
+    <!-- Aquí puedes agregar los mismos estilos y scripts que tienes en tu página principal -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <link href="evento/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+</head>
+<body>
+    <!-- Menú -->
+    <nav>
+        <ul>
+            <li><a href="#live">live show</a></li>
+            <li><a href="#linkbio">mas del evento</a></li>
+            <li><a href="http://grupotrabullagency.me">Web</a></li>
+        </ul>
+    </nav>
+
+    <!-- Evento -->
+    <section id="event">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Evento Especial</h2>
+                <h3 class="section-subheading text-muted">unete al encuentro mas grande de talentos de latinoamerica 3 horas mucha capacitacion y buen entorno</h3>
+                <p>invitados especiales TIKTOK Y BIGO LIVE</p>
+            </div>
+
+            <div id="countdown">
+                <div>
+                    <p id="days"></p>
+                    <span>Días</span>
+                </div>
+                <div>
+                    <p id="hours"></p>
+                    <span>Horas</span>
+                </div>
+                <div>
+                    <p id="minutes"></p>
+                    <span>Minutos</span>
+                </div>
+                <div>
+                    <p id="seconds"></p>
+                    <span>Segundos</span>
+                </div>
+            </div>
+
+            <iframe id="liveEvent" style="display: none;" width="560" height="315" src="YOUR_VIDEO_URL" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div id="slideshow">
+<div class="owl-carousel owl-theme">
+    <div class="item"><img src="assets/img/portfolio/2.jpg" alt="Imagen 1"></div>
+    <div class="item"><img src="assets/img/portfolio/2.jpg" alt="Imagen 2"></div>
+    <div class="item"><img src="assets/img/portfolio/3.jpg" alt="Imagen 3"></div>
+    <div class="item"><img src="assets/img/portfolio/4.jpg" alt="Imagen 4"></div>
+    <div class="item"><img src="assets/img/portfolio/5.jpg" alt="Imagen 5"></div>
+    <!-- Agrega más imágenes si lo deseas -->
+</div>            
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Derechos reservados 2023 &copy; TrabullAgency</p>
+    </footer>
+
+    <script>
+        // Establecer la fecha y hora del evento
+        var eventDate = new Date("Jan 19, 2024 15:00:00 GMT-0600").getTime();
+
+        // Actualizar la cuenta regresiva cada segundo
+        var countdown = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = eventDate - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days + "d ";
+            document.getElementById("hours").innerHTML = hours + "h ";
+            document.getElementById("minutes").innerHTML = minutes + "m ";
+            document.getElementById("seconds").innerHTML = seconds + "s ";
+
+            if (distance < 0) {
+                clearInterval(countdown);
+                document.getElementById("liveEvent").style.display = "block";
+            }
+        }, 1000);
+    </script>
+<script>
+$(document).ready(function(){
+    $('.owl-carousel').owlCarousel({
+        loop:true,
+        margin:10,
+        nav:true,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:3
+            },
+            1000:{
+                items:4
+            }
+        }
+    });
+});
+</script>
+</body>
+</html>
+
+
